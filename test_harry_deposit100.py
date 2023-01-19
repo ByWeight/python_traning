@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-class Test():
+class Test_harry_deposit():
     def setup_method(self, method):
         self.driver = webdriver.Chrome()
         self.vars = {}
@@ -21,3 +21,9 @@ class Test():
         self.driver.find_element(By.CSS_SELECTOR, '.form-control').click()
         self.driver.find_element(By.CSS_SELECTOR, '.form-control').send_keys('100')
         self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
+        check = self.driver.find_element(By.CSS_SELECTOR, 'span[class*=error]').text
+        check_true = ('Deposit Successful')
+        if check == check_true:
+            print('Тест пройден')
+        else:
+            print('Тест провален')
