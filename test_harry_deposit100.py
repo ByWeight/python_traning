@@ -14,7 +14,7 @@ class Test_harry_deposit():
     def test_test(self):
         self.driver.get('https://www.globalsqa.com/angularJs-protractor/BankingProject/')
         self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="customer()"]').click()
-        self.driver.find_element(By.CSS_SELECTOR, "select[class*=ng]").click()
+        self.driver.find_element(By.CSS_SELECTOR, 'select[class*=ng]').click()
         self.driver.find_element(By.CSS_SELECTOR, '#userSelect > option:nth-child(3)').click()
         self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
         self.driver.find_element(By.CSS_SELECTOR, '.btn:nth-child(2)').click()
