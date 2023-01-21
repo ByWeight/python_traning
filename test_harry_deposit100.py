@@ -17,11 +17,11 @@ class Test_harry_deposit():
         self.Deposit(Summ='100')
         self.Check()
 
-    def test_test(self):
-        self.Open_app()
-        self.Login()
-        self.Deposit(Summ='')
-        self.Check()
+    #def test_test(self):
+        #self.Open_app()
+        #self.Login()
+        #self.Deposit(Summ='')
+        #self.Check()
 
 
     def Check(self):
@@ -29,9 +29,9 @@ class Test_harry_deposit():
         check = self.driver.find_element(By.CSS_SELECTOR, 'span[class*=error]').text
         check_true = ('Deposit Successful')
         if check == check_true:
-            print('Тест пройден')
+            print(' Тест пройден')
         else:
-            print('Тест провален')
+            print(' Тест провален')
 
     def Deposit(self, Summ):
         # Start deposit

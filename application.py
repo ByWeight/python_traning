@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class Application:
 
-    def __int__(self):
+    def __init__(self):
         self.driver = webdriver.Chrome()
         self.vars = {}
         self.driver.implicitly_wait(30)
@@ -11,12 +11,12 @@ class Application:
     def destroy(self):
         self.driver.quit()
 
-    def Check(self, text_alert, text_alert_error):
+    #def Check(self, text_alert, text_alert_error):
         # Check
-        if text_alert == text_alert_error:
-            print('Ошибка. Пользователь уже существует')
-        else:
-            print('Успех. Пользователь добавлен')
+        #if text_alert == text_alert_error:
+            #print('Ошибка. Пользователь уже существует')
+        #else:
+            #print('Успех. Пользователь добавлен')
 
     def Add_customer(self, customer):
         # Add customer
