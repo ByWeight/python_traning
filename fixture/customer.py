@@ -21,3 +21,11 @@ class CustomerHelper:
         text_alert_error = 'Please check the details. Customer may be duplicate.'
         assert self.driver.switch_to.alert.text == text_alert
         return text_alert, text_alert_error
+
+    def delete_added_customer(self):
+        self.driver = self.app.driver
+        # Go to list of customers
+        self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="showCust()"]').click()
+        # Delete first customer
+        self.driver.find_element(By.CSS_SELECTOR, 'tbody > tr:nth-child(1) > td:nth-child(5)').click()
+
