@@ -1,31 +1,14 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-from fixture.session import SessionHelper
-from fixture.customer import CustomerHelper
 
 
-class Application:
+class CustomerHelper:
 
-    def __init__(self):
-        self.driver = webdriver.Chrome()
-        self.vars = {}
-        self.driver.implicitly_wait(30)
-        self.session = SessionHelper(self)
-        self.customer = CustomerHelper(self)
-
-
-    def destroy(self):
-        self.driver.quit()
-
-    #def Check(self, text_alert, text_alert_error):
-        # Check
-        #if text_alert == text_alert_error:
-            #print('Ошибка. Пользователь уже существует')
-        #else:
-            #print('Успех. Пользователь добавлен')
+    def __init__(self, app):
+        self.app = app
 
     def Add_customer(self, customer):
         # Add customer
+        self.driver = self.app.driver
         self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="addCust"]').click()
         self.driver.find_element(By.CSS_SELECTOR, 'input[placeholder*="First"]').click()
         self.driver.find_element(By.CSS_SELECTOR, 'input[placeholder*="First"]').send_keys(customer.firstname)
@@ -38,7 +21,3 @@ class Application:
         text_alert_error = 'Please check the details. Customer may be duplicate.'
         assert self.driver.switch_to.alert.text == text_alert
         return text_alert, text_alert_error
-
-    def Open_site(self):
-        # Open site
-        self.driver.get('https://www.globalsqa.com/angularJs-protractor/BankingProject/')
