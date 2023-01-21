@@ -6,7 +6,7 @@ class CustomerHelper:
     def __init__(self, app):
         self.app = app
 
-    def Add_customer(self, customer):
+    def Add(self, customer):
         # Add customer
         self.driver = self.app.driver
         self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="addCust"]').click()
