@@ -11,13 +11,13 @@ def app(request):
 
 
 def test_add(app):
-    app.Login()
+    app.session.Login()
     text_alert, text_alert_error = app.Add_customer(customer(firstname='Denis', lastname='Prokofyev', postcode='K313OK'))
     #app.Check(text_alert, text_alert_error)
 
 
 def test_add_one_symbol(app):
-    app.Login()
+    app.session.Login()
     text_alert, text_alert_error = app.Add_customer(customer(firstname='d', lastname='s', postcode='k'))
     #app.Check(text_alert, text_alert_error)
 

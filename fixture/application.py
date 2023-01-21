@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from fixture.session import SessionHelper
+
 
 class Application:
 
@@ -7,6 +9,8 @@ class Application:
         self.driver = webdriver.Chrome()
         self.vars = {}
         self.driver.implicitly_wait(30)
+        self.session = SessionHelper(self)
+
 
     def destroy(self):
         self.driver.quit()
@@ -32,11 +36,6 @@ class Application:
         text_alert_error = 'Please check the details. Customer may be duplicate.'
         assert self.driver.switch_to.alert.text == text_alert
         return text_alert, text_alert_error
-
-    def Login(self):
-        self.Open_site()
-        # Login
-        self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="manager"]').click()
 
     def Open_site(self):
         # Open site
