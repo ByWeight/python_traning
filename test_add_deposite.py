@@ -27,7 +27,7 @@ class Test_AddDeposite():
 
     def logout(self):
         # Logout
-        self.driver.find_element(By.CSS_SELECTOR, 'body > div > div > div.box.mainhdr > button.btn.logout').click()
+        self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="byebye()"]').click()
 
     def add_deposite(self, deposite):
         self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
