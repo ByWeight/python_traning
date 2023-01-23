@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-class AddDeposite():
+class Test_AddDeposite():
     def setup_method(self):
         self.driver = webdriver.Chrome()
         self.vars = {}
@@ -20,5 +20,6 @@ class AddDeposite():
         self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
         self.driver.find_element(By.CSS_SELECTOR, '.btn:nth-child(2)').click()
         self.driver.find_element(By.CSS_SELECTOR, '.form-control').click()
+        self.driver.implicitly_wait(30)
         self.driver.find_element(By.CSS_SELECTOR, '.form-control').send_keys('500')
         self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
