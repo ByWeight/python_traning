@@ -11,18 +11,25 @@ class Test_AddDeposite():
     def teardown_method(self):
         self.driver.quit()
 
-    def test_test(self):
+    def test_deposite_500(self):
         self.open_home_page()
         self.chose_name()
         # Authorize success
-        self.add_deposite()
+        self.add_deposite(deposite='500')
+        self.logout()
+
+    def test_deposite_empty(self):
+        self.open_home_page()
+        self.chose_name()
+        # Authorize success
+        self.add_deposite(deposite='0')
         self.logout()
 
     def logout(self):
         # Logout
         self.driver.find_element(By.CSS_SELECTOR, 'body > div > div > div.box.mainhdr > button.btn.logout').click()
 
-    def add_deposite(self, deposite='500'):
+    def add_deposite(self, deposite):
         self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
         self.driver.find_element(By.CSS_SELECTOR, '.btn:nth-child(2)').click()
         self.driver.find_element(By.CSS_SELECTOR, '.form-control').click()
