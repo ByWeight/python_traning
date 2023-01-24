@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from deposite import New_deposite
 
 
 class Test_AddDeposite():
@@ -15,14 +16,14 @@ class Test_AddDeposite():
         self.open_home_page()
         self.chose_name()
         # Authorize success
-        self.add_deposite(deposite='500')
+        self.add_deposite(New_deposite(add_deposite='500'))
         self.logout()
 
     def test_deposite_empty(self):
         self.open_home_page()
         self.chose_name()
         # Authorize success
-        self.add_deposite(deposite='0')
+        self.add_deposite(New_deposite(add_deposite='0'))
         self.logout()
 
     def logout(self):
@@ -34,7 +35,7 @@ class Test_AddDeposite():
         self.driver.find_element(By.CSS_SELECTOR, '.btn:nth-child(2)').click()
         self.driver.find_element(By.CSS_SELECTOR, '.form-control').click()
         self.driver.implicitly_wait(30)
-        self.driver.find_element(By.CSS_SELECTOR, '.form-control').send_keys(deposite)
+        self.driver.find_element(By.CSS_SELECTOR, '.form-control').send_keys(deposite.add_deposite)
         self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
 
     def chose_name(self):
