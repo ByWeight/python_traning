@@ -9,3 +9,7 @@ class SessionHelper:
         self.app.Open_site()
         # Login
         self.app.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="manager"]').click()
+
+    def Return(self):
+        # Return
+        self.app.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="home()"]').click()

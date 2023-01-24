@@ -17,10 +17,7 @@ class CustomerHelper:
         self.driver.find_element(By.CSS_SELECTOR, 'input[placeholder*="Post"]').click()
         self.driver.find_element(By.CSS_SELECTOR, 'input[placeholder*="Post"]').send_keys(customer.postcode)
         self.driver.find_element(By.CSS_SELECTOR, 'button[type*="submit"]').click()
-        text_alert = self.driver.switch_to.alert.text
-        text_alert_error = 'Please check the details. Customer may be duplicate.'
-        assert self.driver.switch_to.alert.text == text_alert
-        return text_alert, text_alert_error
+        self.driver.switch_to.alert.accept()
 
     def delete_added_customer(self):
         self.driver = self.app.driver
