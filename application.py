@@ -9,27 +9,32 @@ class Application:
         self.driver.implicitly_wait(30)
 
     def logout(self):
+        wd = self.driver
         # Logout
-        self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="byebye()"]').click()
+        wd.find_element(By.CSS_SELECTOR, 'button[ng-click*="byebye()"]').click()
 
     def add_deposite(self, deposite):
-        self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
-        self.driver.find_element(By.CSS_SELECTOR, '.btn:nth-child(2)').click()
-        self.driver.find_element(By.CSS_SELECTOR, '.form-control').click()
-        self.driver.implicitly_wait(30)
-        self.driver.find_element(By.CSS_SELECTOR, '.form-control').send_keys(deposite.add_deposite)
-        self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
+        wd = self.driver
+        wd.find_element(By.CSS_SELECTOR, '.btn-default').click()
+        wd.find_element(By.CSS_SELECTOR, '.btn:nth-child(2)').click()
+        wd.find_element(By.CSS_SELECTOR, '.form-control').click()
+        wd.implicitly_wait(30)
+        wd.find_element(By.CSS_SELECTOR, '.form-control').send_keys(deposite.add_deposite)
+        wd.find_element(By.CSS_SELECTOR, '.btn-default').click()
 
     def chose_name(self):
+        wd = self.driver
         # Chose you name
-        self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="customer()"]').click()
-        self.driver.find_element(By.CSS_SELECTOR, "select[class*=ng]").click()
-        self.driver.find_element(By.CSS_SELECTOR, '#userSelect > option:nth-child(3)').click()
+        wd.find_element(By.CSS_SELECTOR, 'button[ng-click*="customer()"]').click()
+        wd.find_element(By.CSS_SELECTOR, "select[class*=ng]").click()
+        wd.find_element(By.CSS_SELECTOR, '#userSelect > option:nth-child(3)').click()
 
     def open_home_page(self):
+        wd = self.driver
         # Open Homepage
-        self.driver.get('https://www.globalsqa.com/angularJs-protractor/BankingProject/')
-        self.driver.set_window_size(1920, 1040)
+        wd.get('https://www.globalsqa.com/angularJs-protractor/BankingProject/')
+        wd.set_window_size(1920, 1040)
 
     def destroy(self):
-        self.driver.quit()
+        wd = self.driver
+        wd.quit()
