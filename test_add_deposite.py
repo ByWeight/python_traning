@@ -3,9 +3,9 @@ from application import Application
 import pytest
 
 
-@pytest.fixture()
+@pytest.fixture
 def app(request):
-    fixture = Application
+    fixture = Application()
     request.addfinalizer(fixture.destroy)
     return fixture
 
@@ -19,9 +19,8 @@ def test_deposite_500(app):
 
 
 def test_deposite_empty(app):
-    app.open_home_page()
-    app.chose_name()
+    app.application.open_home_page()
+    app.application.chose_name()
     # Authorize success
-    app.add_deposite(New_deposite(add_deposite='0'))
-    app.logout()
-
+    app.application.add_deposite(New_deposite(add_deposite='0'))
+    app.application.logout()
