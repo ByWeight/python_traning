@@ -1,16 +1,10 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from deposite import New_deposite
+from application import Application
 
 
 class Test_AddDeposite():
-    def setup_method(self):
-        self.driver = webdriver.Chrome()
-        self.vars = {}
-        self.driver.implicitly_wait(30)
-
-    def teardown_method(self):
-        self.driver.quit()
+    def setUp(self):
+        self.app = Application()
 
     def test_deposite_500(self):
         self.open_home_page()
@@ -25,28 +19,5 @@ class Test_AddDeposite():
         # Authorize success
         self.add_deposite(New_deposite(add_deposite='0'))
         self.logout()
-
-    def logout(self):
-        # Logout
-        self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="byebye()"]').click()
-
-    def add_deposite(self, deposite):
-        self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
-        self.driver.find_element(By.CSS_SELECTOR, '.btn:nth-child(2)').click()
-        self.driver.find_element(By.CSS_SELECTOR, '.form-control').click()
-        self.driver.implicitly_wait(30)
-        self.driver.find_element(By.CSS_SELECTOR, '.form-control').send_keys(deposite.add_deposite)
-        self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
-
-    def chose_name(self):
-        # Chose you name
-        self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="customer()"]').click()
-        self.driver.find_element(By.CSS_SELECTOR, "select[class*=ng]").click()
-        self.driver.find_element(By.CSS_SELECTOR, '#userSelect > option:nth-child(3)').click()
-
-    def open_home_page(self):
-        # Open Homepage
-        self.driver.get('https://www.globalsqa.com/angularJs-protractor/BankingProject/')
-        self.driver.set_window_size(1920, 1040)
 
 
