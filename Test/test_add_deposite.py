@@ -1,5 +1,5 @@
-from deposite import New_deposite
-from application import Application
+from Git.python_traning.Model.deposite import New_deposite
+from Git.python_traning.Fixture.application import Application
 import pytest
 
 
