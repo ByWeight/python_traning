@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from Git.python_traning.Fixture.session import SessionHelper
 
 
 class Application:
@@ -7,10 +8,7 @@ class Application:
         self.driver = webdriver.Chrome()
         self.vars = {}
         self.driver.implicitly_wait(30)
-
-    def logout(self):
-        # Logout
-        self.driver.find_element(By.CSS_SELECTOR, 'button[ng-click*="byebye()"]').click()
+        self.session = SessionHelper(self)
 
     def add_deposite(self, deposite):
         self.driver.find_element(By.CSS_SELECTOR, '.btn-default').click()
