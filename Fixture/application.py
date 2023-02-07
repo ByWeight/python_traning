@@ -24,10 +24,7 @@ class Application:
         self.driver.find_element(By.CSS_SELECTOR, "select[class*=ng]").click()
         self.driver.find_element(By.CSS_SELECTOR, '#userSelect > option:nth-child(3)').click()
 
-    def open_home_page(self):
-        # Open Homepage
-        self.driver.get('https://www.globalsqa.com/angularJs-protractor/BankingProject/')
-        self.driver.set_window_size(1920, 1040)
+
 
     def destroy(self):
         self.driver.quit()

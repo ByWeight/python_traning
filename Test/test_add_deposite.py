@@ -4,7 +4,7 @@ from Git.python_traning.Model.deposite import New_deposite
 
 
 def test_deposite_500(app):
-    app.open_home_page()
+    app.session.open_home_page()
     app.chose_name()
     # Authorize success
     app.add_deposite(New_deposite(add_deposite='500'))
@@ -12,7 +12,7 @@ def test_deposite_500(app):
 
 
 def test_deposite_empty(app):
-    app.open_home_page()
+    app.session.open_home_page()
     app.chose_name()
     # Authorize success
     app.add_deposite(New_deposite(add_deposite='1'))
