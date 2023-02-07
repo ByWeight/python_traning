@@ -15,5 +15,5 @@ def test_deposite_empty(app):
     app.open_home_page()
     app.chose_name()
     # Authorize success
-    app.add_deposite(New_deposite(add_deposite='0'))
+    app.add_deposite(New_deposite(add_deposite='1'))
     app.session.logout()
